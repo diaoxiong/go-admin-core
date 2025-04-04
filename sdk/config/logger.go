@@ -9,6 +9,7 @@ type Logger struct {
 	Stdout    string
 	EnabledDB bool
 	Cap       uint
+	Driver    string
 }
 
 // Setup 设置logger
@@ -19,6 +20,7 @@ func (e Logger) Setup() {
 		logger.WithLevel(e.Level),
 		logger.WithStdout(e.Stdout),
 		logger.WithCap(e.Cap),
+		logger.WithDriver(e.Driver),
 	)
 }
 

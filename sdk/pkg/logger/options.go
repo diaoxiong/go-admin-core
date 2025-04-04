@@ -55,3 +55,9 @@ func WithCap(n uint) Option {
 		o.cap = n
 	}
 }
+
+func WithDriver(s string) Option {
+	return func(o *options) {
+		o.driver = s
+	}
+}
