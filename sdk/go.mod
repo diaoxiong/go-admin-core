@@ -25,6 +25,8 @@ require (
 	gorm.io/gorm v1.25.11
 )
 
+replace github.com/go-admin-team/go-admin-core/plugins/logger/zap => github.com/diaoxiong/go-admin-core/plugins/logger/zap v1.3.5-rc.0.0.20250404155246-f638fad01d23
+
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
