@@ -59,11 +59,7 @@ func (l *zaplog) Init(opts ...logger.Option) error {
 		zapcore.NewMultiWriteSyncer(zapcore.AddSync(writer)),
 		zapConfig.Level)
 
-	log := zap.New(logCore, zap.AddCaller(), zap.AddCallerSkip(skip), zap.AddStacktrace(zap.DPanicLevel))
-	//log, err := zapConfig.Build(zap.AddCallerSkip(skip))
-	//if err != nil {
-	//	return err
-	//}
+	log := zap.New(logCore, zap.AddCaller(), zap.AddCallerSkip(skip), zap.AddStacktrace(zap.ErrorLevel))
 
 	// Adding seed fields if exist
 	if l.opts.Fields != nil {
@@ -78,8 +74,6 @@ func (l *zaplog) Init(opts ...logger.Option) error {
 	if namespace, ok := l.opts.Context.Value(namespaceKey{}).(string); ok {
 		log = log.With(zap.Namespace(namespace))
 	}
-
-	// defer log.Sync() ??
 
 	l.cfg = zapConfig
 	l.zap = log
